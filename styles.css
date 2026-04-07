@@ -219,32 +219,7 @@ color: #948A80;
 
 
 /* Rectangle */
-.questioncontainer{
-/* Question Panel */
 
-box-sizing: border-box;
-
-position: absolute;
-width: 640px;
-height: 176px;
-left: 401px;
-top: 1038px;
-
-background: #FFFCFA;
-border: 0.5px solid #BFB3A6;
-border-radius: 3px;
-/* Ask Label */
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 11px;
-line-height: 13px;
-letter-spacing: 2.5px;
-
-color: #948A80;
-
-
-}
 
 /* Question Panel */
 .questionpanel{
