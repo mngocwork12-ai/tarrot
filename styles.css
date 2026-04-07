@@ -78,6 +78,7 @@
 
 /* Step Sub Past */
 .subtext1{
+    postion:absolute;
     display: flex;
     height: 13px;
     left: 96px;
