@@ -1,219 +1,211 @@
 /* Line */
 .decoline1{
 /* Rule Top */
-
-position: absolute;
-width: 1280px;
-height: 0px;
-left: 80px;
-top: 98px;
-
-border: 0.5px solid rgba(209, 199, 189, 0.4);
+    position: absolute;
+    width: 1280px;
+    height: 0px;
+    left: 80px;
+    top: 98px;
+    border: 0.5px solid rgba(209, 199, 189, 0.4);
 
 }
 
 .decoline2{
     /* Rule Bottom */
-
-position: absolute;
-width: 1280px;
-height: 0px;
-left: 80px;
-top: 170px;
-
-border: 0.5px solid rgba(209, 199, 189, 0.4);
-
+    position: absolute;
+    width: 1280px;
+    height: 0px;
+    left: 80px;
+    top: 175px;
+    border: 0.5px solid rgba(209, 199, 189, 0.4);
 }
 
-/* Choose */
+
 .choose3cards{
-/* Tagline */
-
-position: absolute;
-width: 135px;
-height: 21px;
-left: 80px;
-top: 108px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 12px;
-letter-spacing: 2px;
-
-color: #948A80;
+    position: absolute;
+    width: 135px;
+    height: 21px;
+    left: 80px;
+    top: 108px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #948A80;
 }
 
 .stepnum1{
-
-position: absolute;
-width: 5px;
-height: 12px;
-left: 80px;
-top: 130px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 12px;
-letter-spacing: 1px;
-
-color: #948A80;
+    
+    position: absolute;
+    width: 5px;
+    height: 12px;
+    left: 80px;
+    top: 130px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
 }
 
 
 .label1{
 
-position: absolute;
-width: 29px;
-height: 16px;
-left: 96px;
-top: 129px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 13px;
-line-height: 16px;
-/* identical to box height */
-letter-spacing: 0.5px;
-
-color: #241F1C;
+    position: absolute;
+    width: 29px;
+    height: 16px;
+    left: 96px;
+    top: 129px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
 }
 
 
 /* Step Sub Past */
 .subtext1{
-position: absolute;
-width: 90px;
-height: 13px;
-left: 96px;
-top: 147px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 11px;
-line-height: 13px;
-
-color: #948A80;
+    flex: 1;
+    width: 90px;
+    height: 13px;
+    left: 96px;
+    top: 147px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
 }
 
 
 /* Step Num 2 */
 .stepnum2{
-position: absolute;
-width: 7px;
-height: 12px;
-left: 304px;
-top: 130px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 12px;
-letter-spacing: 1px;
-
-color: #948A80;
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    left: 304px;
+    top: 130px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
 }
 
 
 /* Step Label Present */
 .label2{
-position: absolute;
-width: 51px;
-height: 16px;
-left: 320px;
-top: 129px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 13px;
-line-height: 16px;
-/* identical to box height */
-letter-spacing: 0.5px;
-
-color: #241F1C;
+    position: absolute;
+    width: 51px;
+    height: 16px;
+    left: 320px;
+    top: 129px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
 }
 
 
 /* Step Sub Present */
 .subtext2{
-position: absolute;
-width: 112px;
-height: 13px;
-left: 320px;
-top: 147px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 11px;
-line-height: 13px;
-
-color: #948A80;
+    position: absolute;
+    width: 112px;
+    height: 13px;
+    left: 320px;
+    top: 147px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
 }
 
 
 /* Step Num 3 */
 .stepnum3{
-position: absolute;
-width: 7px;
-height: 12px;
-left: 528px;
-top: 130px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 12px;
-letter-spacing: 1px;
-
-color: #948A80;
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    left: 528px;
+    top: 130px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
 }
 
 
 /* Step Label Future */
 .label3{
-position: absolute;
-width: 43px;
-height: 16px;
-left: 544px;
-top: 129px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 13px;
-line-height: 16px;
-/* identical to box height */
-letter-spacing: 0.5px;
-
-color: #241F1C;
+    position: absolute;
+    width: 43px;
+    height: 16px;
+    left: 544px;
+    top: 129px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
 }
 
 
 .subtext3{
 /* Step Sub Future */
 
-position: absolute;
-width: 82px;
-height: 13px;
-left: 544px;
-top: 147px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 11px;
-line-height: 13px;
-
-color: #948A80;
+    position: absolute;
+    width: 82px;
+    height: 13px;
+    left: 544px;
+    top: 147px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
 }
 
 
