@@ -222,20 +222,65 @@ color: #948A80;
 
 
 /* Question Panel */
-.questionpanel{
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF7F5;
+    font-family: 'Inter', sans-serif;
+}
 
-box-sizing: border-box;
+/* Question Panel */
+.questionpanel {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-position: absolute;
-width: 584px;
-height: 52px;
-left: 28px;
-top: 56px;
+    position: absolute;
+    width: 584px;
+    height: 52px;
+    left: 80px;       /* align with your other elements */
+    top: 210px;       /* below the decoline2 at top:170px */
 
-background: #FAF7F5;
-border: 0.5px solid #BFB3A6;
-border-radius: 2px;
-/* Ask Label */
+    background: #FAF7F5;
+    border: 0.5px solid #BFB3A6;
+    border-radius: 2px;
+    padding: 0 12px;
+}
+
+.questionpanel input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #241F1C;
+}
+
+.questionpanel input[type="text"]::placeholder {
+    color: #948A80;
+    letter-spacing: 0.3px;
+}
+
+.questionpanel button[type="submit"] {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #948A80;
+    text-transform: uppercase;
+    padding: 6px 0;
+}
+
+.questionpanel button[type="submit"]:hover {
+    color: #241F1C;
 }
 
 
