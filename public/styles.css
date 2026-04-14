@@ -1,0 +1,334 @@
+/* Line */
+.decoline1{
+/* Rule Top */
+    position: absolute;
+    width: 1280px;
+    height: 0px;
+    left: 80px;
+    top: 28px;
+    border: 0.5px solid rgba(209, 199, 189, 0.4);
+
+}
+
+.decoline2{
+    /* Rule Bottom */
+    position: absolute;
+    width: 1280px;
+    height: 0px;
+    left: 80px;
+    top: 105px;
+    border: 0.5px solid rgba(209, 199, 189, 0.4);
+}
+
+
+.choose3cards{
+    position: absolute;
+    width: 500px;
+    height: 21px;
+    left: 80px;
+    top: 38px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #948A80;
+}
+
+.stepnum1{
+    
+    position: absolute;
+    width: 5px;
+    height: 12px;
+    left: 80px;
+    top: 60px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
+}
+
+
+.label1{
+
+    position: absolute;
+    width: 29px;
+    height: 16px;
+    left: 96px;
+    top: 59px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
+}
+
+
+/* Step Sub Past */
+.subtext1{
+    position: absolute;
+    width: 112px;
+    height: 13px;
+    left: 96px;
+    top: 77px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
+}
+
+
+/* Step Num 2 */
+.stepnum2{
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    left: 304px;
+    top: 60px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
+}
+
+
+/* Step Label Present */
+.label2{
+    position: absolute;
+    width: 51px;
+    height: 16px;
+    left: 320px;
+    top: 59px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
+}
+
+
+/* Step Sub Present */
+.subtext2{
+    position: absolute;
+    width: 112px;
+    height: 13px;
+    left: 320px;
+    top: 77px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
+}
+
+
+/* Step Num 3 */
+.stepnum3{
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    left: 528px;
+    top: 60px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    
+    color: #948A80;
+}
+
+
+/* Step Label Future */
+.label3{
+    position: absolute;
+    width: 43px;
+    height: 16px;
+    left: 544px;
+    top: 59px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.5px;
+    
+    color: #241F1C;
+}
+
+
+.subtext3{
+/* Step Sub Future */
+
+    position: absolute;
+    width: 82px;
+    height: 13px;
+    left: 544px;
+    top: 77px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    
+    color: #948A80;
+}
+
+
+
+/* Rectangle */
+
+
+/* Question Panel */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF7F5;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Question Panel */
+.questionpanel {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    position: relative;
+    width: 584px;
+    height: 52px;
+    left: 80px;       /* align with your other elements */
+    margin-top: 140px;       /* below the decoline2 at top:170px */
+
+    background: #FAF7F5;
+    border: 0.5px solid #BFB3A6;
+    border-radius: 2px;
+    padding: 0 12px;
+}
+
+.questionpanel input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #241F1C;
+}
+
+.questionpanel input[type="text"]::placeholder {
+    color: #948A80;
+    letter-spacing: 0.3px;
+}
+
+.questionpanel button[type="submit"] {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #948A80;
+    text-transform: uppercase;
+    padding: 6px 0;
+}
+
+.questionpanel button[type="submit"]:hover {
+    color: #241F1C;
+}
+
+
+.card-grid {
+    left: 80px;
+    position: relative;
+    margin-top: 16px;     /* just a small gap below the panel */
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);    
+    gap: 8px;
+    width: fit-content;
+}
+
+/* Card */
+
+.backcard {
+  position: relative;
+  width: 72px;
+  height: 116px;
+  background: #fffefe;
+  border: 1px solid #62390f;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.backcard .inner {
+  position: absolute;
+  inset: 5px;   /* 5px gap on all 4 sides, always perfectly even */
+  border: 1px solid rgba(207, 175, 142, 0.5);
+  border-radius: 3px;
+}
+
+.backcard .tri-up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 27px;
+  top: 46px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 14px solid #D1C7BD;
+}
+
+.backcard .tri-down {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 27px;
+  top: 58px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 14px solid #D1C7BD;
+}
+
+.card-selected {
+  border-color: #241F1C;
+  background-color: #6b6561;
+}
