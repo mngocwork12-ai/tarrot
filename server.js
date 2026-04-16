@@ -52,7 +52,7 @@ Give a warm, insightful tarot reading.`;
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server running at http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
 
