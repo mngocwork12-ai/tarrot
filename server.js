@@ -1,17 +1,17 @@
-const express = require("express");
-const Anthropic = require("@anthropic-ai/sdk");
-const path = require("path");
-const { configDotenv } = require("dotenv");
-
+import Anthropic from "@anthropic-ai/sdk";
+import express from "express";
+import path from "path";
 const app = express();
 app.use(express.json());
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // Create the Anthropic client once — reused for every request
-const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"]
-});
-
+const client = new Anthropic();
 app.post("/ask", async (req, res) => {
   const { question, selectedCards } = req.body;
 
@@ -56,4 +56,3 @@ app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
 });
 
-console.log("ENV loaded:", process.env.ANTHROPIC_API_KEY ? "YES" : "NO");
