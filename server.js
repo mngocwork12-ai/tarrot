@@ -19,16 +19,17 @@ app.post("/ask", async (req, res) => {
 const cardList = selectedCards
     .map((c, i) => {
       const position = ["Past", "Present", "Future"][i];
-      return `${position}: ${c.name} (${c.number})`;
+      return `${position}: ${c.name}`;
     })
     .join("\n");
-  
+    console.log(selectedCards);
+
   // Build prompt
 const prompt = `You are an honest and funny tarot reader.
 The user asked: "${question}";
 The user picked these cards, representing Past, Present and Future:
 ${cardList}
-Give an insightful tarot reading with no flattery and use easy language, have a firm position and use witty language. translate the response into Vietnamese`;
+Give an insightful tarot reading with no flattery and use easy language, have a firm position and use witty language. use the same language as the question asked. do not use quote sign. dont add title and special characters`;
 
   try {
     // This is the template from Anthropic — adapted for your app

@@ -52,6 +52,7 @@ async function initCardGrid() {
     shuffledCards.forEach((card, index) => {
       const originalIndex = cards.indexOf(card);
       const cardElement = createCardElement(card, originalIndex, index);
+      cardElement.dataset.cardImg = card.img; 
       grid.appendChild(cardElement);
     });
   } catch (error) {
@@ -91,6 +92,7 @@ questionForm.addEventListener('submit', async (e) => {
   const selectedCards = Array.from(document.querySelectorAll('.backcard.card-selected')).map(card => ({
     name: card.dataset.cardName,
     number: card.dataset.cardNumber,
+    img: card.dataset.cardImg
   }));
 
   if (selectedCards.length === 0) {

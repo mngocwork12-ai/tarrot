@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Tarot Reading Result</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Open Sans", sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #FAF7F5;
             color: #241F1C;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             background: white;
@@ -19,64 +22,149 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #241F1C;
+            color: #481d03;
             text-align: center;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        .question, .cards, .reading {
-            margin-bottom: 20px;
+        .subtitle {
+            text-align: center;
+            color: #948A80;
+            font-size: 13px;
+            margin-bottom: 32px;
+        }
+        .question {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #948A80;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .cards-section {
+            margin-bottom: 32px;
+        }
+        .cards-section h2 {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #948A80;
+            font-weight: 500;
+            margin-bottom: 16px;
         }
         .cards {
             display: flex;
+            gap: 16px;
             flex-wrap: wrap;
-            gap: 10px;
+            justify-content: center;
         }
         .card {
-            padding: 10px;
-            border: 1px solid #BFB3A6;
-            border-radius: 4px;
-            background: #FAF7F5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 160px;
+        }
+        .card img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 0.5px solid #BFB3A6;
+        }
+        .card-name {
+            font-size: 12px;
+            text-align: center;
+            color: #241F1C;
+            font-weight: 500;
+        }
+        .card-position {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #948A80;
+        }
+        .reading-section h2 {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #948A80;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
         .reading {
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 14px;
+            color: #241F1C;
+            border-left: 2px solid #BFB3A6;
+            padding-left: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 140px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Your Tarot Reading</h1>
-        <div class="question">
-            <strong>Question:</strong> <span id="userQuestion"></span>
+        <div class="cards-section">
+            <h2>Your Chosen Cards</h2>
+            <div class="cards" id="selectedCards"></div>
         </div>
-        <div class="cards">
-            <strong>Selected Cards:</strong>
-            <div id="selectedCards"></div>
-        </div>
-        <div class="reading">
-            <strong>Reading:</strong>
-            <p id="aiResponse"></p>
+
+        <div class="reading-section">
+            <h2>Interpretation</h2>
+            <div class="reading">
+                <p id="aiResponse"></p>
+            </div>
         </div>
     </div>
 
-    <script> 
+    <script>
         const urlParams = new URLSearchParams(window.location.search);
         const question = urlParams.get('question') || 'No question provided';
         const responseText = urlParams.get('response') || 'No response available';
         const cardsParam = urlParams.get('cards');
 
         document.getElementById('userQuestion').textContent = question;
-        document.getElementById('aiResponse').innerHTML = responseText.replace(/\n/g, '<br>'); 
+        document.getElementById('aiResponse').innerHTML = responseText.replace(/\n/g, '<br>');
+
+        const positions = ["Past", "Present", "Future"];
 
         if (cardsParam) {
             const cards = JSON.parse(decodeURIComponent(cardsParam));
             const cardsContainer = document.getElementById('selectedCards');
-            cards.forEach(card => {
+
+            cards.forEach((card, i) => {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
-                cardDiv.textContent = `${card.name} (${card.number})`;
+
+                const img = document.createElement('img');
+                img.src = `/cardimage/${card.img}`;
+                img.alt = card.name;
+
+                const position = document.createElement('span');
+                position.className = 'card-position';
+                position.textContent = positions[i] || '';
+
+                const name = document.createElement('span');
+                name.className = 'card-name';
+                name.textContent = card.name;
+
+                cardDiv.appendChild(img);
+                cardDiv.appendChild(position);
+                cardDiv.appendChild(name);
                 cardsContainer.appendChild(cardDiv);
             });
-        }   
+        }
     </script>
-       
 </body>
 </html>
