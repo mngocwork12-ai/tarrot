@@ -59,6 +59,6 @@ Give an insightful tarot reading with no flattery and use easy language, have a 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log("Server running at http://localhost:3000");
+  console.log("Server running at https://tarrot-production.up.railway.app");
 });
 
