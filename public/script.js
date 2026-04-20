@@ -73,6 +73,14 @@ grid.addEventListener('click', handleCardClick);
 
 // Get reference to the question form
 const questionForm = document.querySelector('.questionpanel');
+// turn the confirm into loading 
+// turn the confirm into loading 
+const submitbutton = document.getElementById('submitbutton');
+submitbutton.addEventListener('click', function() {
+  submitbutton.style.display = 'none';
+  document.getElementById('loadingSpinner').style.display = 'block';
+});
+
 
 questionForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -83,7 +91,6 @@ questionForm.addEventListener('submit', async (e) => {
   const selectedCards = Array.from(document.querySelectorAll('.backcard.card-selected')).map(card => ({
     name: card.dataset.cardName,
     number: card.dataset.cardNumber,
-    image: card.dataset.cardImage
   }));
 
   if (selectedCards.length === 0) {

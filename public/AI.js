@@ -1,5 +1,5 @@
 async function query(question, selectedCards) {
-  const response = await fetch("tarrot-production.up.railway.app/ask", {
+  const response = await fetch("http://localhost:3000/ask", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question, selectedCards })

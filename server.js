@@ -16,19 +16,19 @@ app.post("/ask", async (req, res) => {
   const { question, selectedCards } = req.body;
 
   // Build card list
-  const cardList = selectedCards
+const cardList = selectedCards
     .map((c, i) => {
       const position = ["Past", "Present", "Future"][i];
       return `${position}: ${c.name} (${c.number})`;
     })
     .join("\n");
-
+  
   // Build prompt
-  const prompt = `You are a wise and thoughtful tarot reader.
-The user asked: "${question}"
-They drew these cards:
+const prompt = `You are an honest and funny tarot reader.
+The user asked: "${question}";
+The user picked these cards, representing Past, Present and Future:
 ${cardList}
-Give a warm, insightful tarot reading.`;
+Give an insightful tarot reading with no flattery and use easy language, have a firm position and use witty language. translate the response into Vietnamese`;
 
   try {
     // This is the template from Anthropic — adapted for your app
@@ -52,7 +52,9 @@ Give a warm, insightful tarot reading.`;
   }
 });
 
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log("Server running at http://localhost:3000");
 });
 

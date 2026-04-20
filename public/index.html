@@ -3,10 +3,11 @@
 <head>
     <title>Tarrot Card Reading</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     <div class="decoline1"></div>
-    <span class="choose3cards">Enter your question, then choose 3 cards</span>
+    <span class="choose3cards"> Enter your question - Choose three cards - Confirm </span>
     <div class="stepnum1">1</div>
     <div class="label1">Past</div>
     <div class="subtext1">What has shaped you?</div>
@@ -20,7 +21,10 @@
     <div>
         <form class="questionpanel">
             <input type="text" placeholder= 'Ask the universe'>
-            <button type="submit">Send</button>
+            <button type="submit" id="submitbutton">Confirm</button>
+            <div class="spinner-grow" role="status" id="loadingSpinner" style="display: none;">
+                <span class="sr-only"></span>
+            </div>
         </form>
     </div>
     <div class="card-grid" id="cardGrid"></div>

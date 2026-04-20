@@ -30,10 +30,10 @@
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 13px;
     line-height: 12px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: #948A80;
 }
 
@@ -41,14 +41,14 @@
     
     position: absolute;
     width: 5px;
-    height: 12px;
+    height: 45px;
     left: 80px;
-    top: 60px;
+    top: 68px;
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 25px;
     line-height: 12px;
     letter-spacing: 1px;
     
@@ -62,7 +62,7 @@
     width: 29px;
     height: 16px;
     left: 96px;
-    top: 59px;
+    top: 62px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -82,7 +82,7 @@
     width: 112px;
     height: 13px;
     left: 96px;
-    top: 77px;
+    top: 80px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -100,12 +100,12 @@
     width: 7px;
     height: 12px;
     left: 304px;
-    top: 60px;
+    top: 68px;
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 25px;
     line-height: 12px;
     letter-spacing: 1px;
     
@@ -119,7 +119,7 @@
     width: 51px;
     height: 16px;
     left: 320px;
-    top: 59px;
+    top: 62px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -139,7 +139,7 @@
     width: 112px;
     height: 13px;
     left: 320px;
-    top: 77px;
+    top: 80px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -157,12 +157,12 @@
     width: 7px;
     height: 12px;
     left: 528px;
-    top: 60px;
+    top: 68px;
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 25px;
     line-height: 12px;
     letter-spacing: 1px;
     
@@ -176,7 +176,7 @@
     width: 43px;
     height: 16px;
     left: 544px;
-    top: 59px;
+    top: 62px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -197,7 +197,7 @@
     width: 82px;
     height: 13px;
     left: 544px;
-    top: 77px;
+    top: 80px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -221,30 +221,27 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Question Panel */
 .questionpanel {
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 
     position: relative;
     width: 584px;
-    height: 52px;
-    left: 80px;       /* align with your other elements */
-    margin-top: 140px;       /* below the decoline2 at top:170px */
-
-    background: #FAF7F5;
-    border: 0.5px solid #BFB3A6;
-    border-radius: 2px;
-    padding: 0 12px;
+    left: 80px;
+    margin-top: 140px;
 }
 
 .questionpanel input[type="text"] {
     flex: 1;
-    border: none;
-    background: transparent;
+    box-sizing: border-box;
+    height: 52px;
+    border: 1px solid #b2a699;
+    border-radius: 2px;
+    background: #FAF7F5;
     outline: none;
+    padding: 0 12px;
 
     font-family: 'Inter', sans-serif;
     font-weight: 300;
@@ -258,22 +255,33 @@ body {
 }
 
 .questionpanel button[type="submit"] {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 20px;
+
+    background: #241F1C;
     border: none;
-    background: transparent;
+    border-radius: 2px;
     cursor: pointer;
 
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 11px;
     letter-spacing: 1.5px;
-    color: #948A80;
+    color: #FAF7F5;
     text-transform: uppercase;
-    padding: 6px 0;
+
+    transition: background 0.2s ease;
 }
 
 .questionpanel button[type="submit"]:hover {
-    color: #241F1C;
+    background: #4A3F38;
+    color: #FAF7F5;
 }
+
 
 
 .card-grid {
