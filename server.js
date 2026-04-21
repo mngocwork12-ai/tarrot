@@ -12,6 +12,7 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowed = [
       "https://tarrot-gamma.vercel.app",
+      "https://vscode.familyfoodsmarket.com",
       "http://localhost:3000",
       "http://localhost:5500",
       "http://127.0.0.1:5500"

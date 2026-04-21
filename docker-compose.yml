@@ -1,0 +1,15 @@
+services:
+  tarrot:
+    image: tarrot:1.0.1
+    container_name: tarrot
+    # ports:
+    #   - "3000:3000"
+    restart: always
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    networks:
+      - odoo
+
+networks:
+  odoo:
+   external: true
