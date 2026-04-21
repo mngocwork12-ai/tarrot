@@ -9,7 +9,19 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(cors({
-  origin: "https://tarrot-gamma.vercel.app"
+  origin: function (origin, callback) {
+    const allowed = [
+      "https://tarrot-gamma.vercel.app",
+      "http://localhost:3000",
+      "http://localhost:5500",
+      "http://127.0.0.1:5500"
+    ];
+    // Allow requests with no origin (e.g. Postman, curl, same-origin)
+    if (!origin || allowed.includes(origin)) return callback(null, true);
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
 }));
 app.use(express.static(path.join(__dirname, "public")));
 
