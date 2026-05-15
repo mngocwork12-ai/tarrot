@@ -1,221 +1,88 @@
-/* Line */
-.decoline1{
-/* Rule Top */
-    position: absolute;
-    width: 1280px;
-    height: 0px;
-    left: 80px;
-    top: 28px;
-    border: 0.5px solid rgba(209, 199, 189, 0.4);
-
-}
-
-.decoline2{
-    /* Rule Bottom */
-    position: absolute;
-    width: 1280px;
-    height: 0px;
-    left: 80px;
-    top: 105px;
-    border: 0.5px solid rgba(209, 199, 189, 0.4);
-}
-
-
-.choose3cards{
-    position: absolute;
-    width: 500px;
-    height: 21px;
-    left: 80px;
-    top: 38px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 12px;
-    letter-spacing: 1.5px;
-    color: #948A80;
-}
-
-.stepnum1{
-    
-    position: absolute;
-    width: 5px;
-    height: 45px;
-    left: 80px;
-    top: 68px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 12px;
-    letter-spacing: 1px;
-    
-    color: #948A80;
-}
-
-
-.label1{
-
-    position: absolute;
-    width: 29px;
-    height: 16px;
-    left: 96px;
-    top: 62px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-    letter-spacing: 0.5px;
-    
-    color: #241F1C;
-}
-
-
-/* Step Sub Past */
-.subtext1{
-    position: absolute;
-    height: 13px;
-    left: 96px;
-    top: 80px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 13px;
-    
-    color: #948A80;
-}
-
-
-/* Step Num 2 */
-.stepnum2{
-    position: absolute;
-    width: 7px;
-    height: 12px;
-    left: 304px;
-    top: 68px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 12px;
-    letter-spacing: 1px;
-    
-    color: #948A80;
-}
-
-
-/* Step Label Present */
-.label2{
-    position: absolute;
-    width: 51px;
-    height: 16px;
-    left: 320px;
-    top: 62px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-    letter-spacing: 0.5px;
-    
-    color: #241F1C;
-}
-
-
-/* Step Sub Present */
-.subtext2{
-    position: absolute;
-    height: 13px;
-    left: 320px;
-    top: 80px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 13px;
-    
-    color: #948A80;
-}
-
-
-/* Step Num 3 */
-.stepnum3{
-    position: absolute;
-    width: 7px;
-    height: 12px;
-    left: 528px;
-    top: 68px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 12px;
-    letter-spacing: 1px;
-    
-    color: #948A80;
-}
-
-
-/* Step Label Future */
-.label3{
-    position: absolute;
-    width: 43px;
-    height: 16px;
-    left: 544px;
-    top: 62px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-    letter-spacing: 0.5px;
-    
-    color: #241F1C;
-}
-
-
-.subtext3{
-/* Step Sub Future */
-
-    position: absolute;
-    height: 13px;
-    left: 544px;
-    top: 80px;
-    
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 13px;
-    
-    color: #948A80;
-}
-
-
-
-/* Rectangle */
-
-
-/* Question Panel */
+/* Base Styles */
 body {
     margin: 0;
     padding: 0;
     background-color: #FAF7F5;
-    font-family: "Open Sans", sans-serif, sans-serif;
+    font-family: "Open Sans", sans-serif;
+    color: #241F1C;
+}
+
+/* Header Section */
+.header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 40px 0 40px;
+    box-sizing: border-box;
+}
+
+.decoline1, .decoline2 {
+    width: 100%;
+    height: 0px;
+    border-top: 0.5px solid rgba(209, 199, 189, 0.4);
+    margin: 16px 0;
+}
+
+.choose3cards {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: #948A80;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.steps-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 80px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.step-num {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    color: #948A80;
+}
+
+.step-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-label {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #241F1C;
+    margin-bottom: 4px;
+}
+
+.step-sub {
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    color: #948A80;
+    display: block;
+}
+
+/* Main Content */
+.content-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px 40px 40px;
+    box-sizing: border-box;
 }
 
 .questionpanel {
@@ -223,15 +90,14 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    position: relative;
-    width: 584px;
-    left: 80px;
-    margin-top: 140px;
+    width: 100%;
+    max-width: 584px;
+    margin-top: 20px;
 }
 
 .questionpanel input[type="text"] {
     flex: 1;
+    min-width: 0;
     box-sizing: border-box;
     height: 52px;
     border: 1px solid #b2a699;
@@ -239,8 +105,7 @@ body {
     background: #FAF7F5;
     outline: none;
     padding: 0 12px;
-
-    font-family: "Open Sans", sans-serif, sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-size: 13px;
     color: #241F1C;
@@ -258,82 +123,127 @@ body {
     justify-content: center;
     height: 52px;
     padding: 0 20px;
-
     background: #241F1C;
     border: none;
     border-radius: 2px;
     cursor: pointer;
-
-    font-family: "Open Sans", sans-serif, sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 500;
     font-size: 11px;
     letter-spacing: 1.5px;
     color: #FAF7F5;
     text-transform: uppercase;
-
     transition: background 0.2s ease;
+    white-space: nowrap;
 }
 
 .questionpanel button[type="submit"]:hover {
     background: #4A3F38;
-    color: #FAF7F5;
 }
 
-
-
 .card-grid {
-    left: 80px;
-    position: relative;
-    margin-top: 16px;     /* just a small gap below the panel */
-    display: grid;
-    grid-template-columns: repeat(13, 1fr);    
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    width: fit-content;
+    width: 100%;
 }
 
 /* Card */
-
 .backcard {
-  position: relative;
-  width: 72px;
-  height: 116px;
-  background: #fffefe;
-  border: 1px solid #62390f;
-  border-radius: 5px;
-  box-sizing: border-box;
-  cursor: pointer;
+    position: relative;
+    width: 72px;
+    height: 116px;
+    flex-shrink: 0;
+    background: #fffefe;
+    border: 1px solid #62390f;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .backcard .inner {
-  position: absolute;
-  inset: 5px;   /* 5px gap on all 4 sides, always perfectly even */
-  border: 1px solid rgba(207, 175, 142, 0.5);
-  border-radius: 3px;
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(207, 175, 142, 0.5);
+    border-radius: 3px;
 }
 
 .backcard .tri-up {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 27px;
-  top: 46px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 14px solid #D1C7BD;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 27px;
+    top: 46px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 14px solid #D1C7BD;
 }
 
 .backcard .tri-down {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 27px;
-  top: 58px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 14px solid #D1C7BD;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 27px;
+    top: 58px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 14px solid #D1C7BD;
 }
 
 .card-selected {
-  border-color: #241F1C;
-  background-color: #6b6561;
+    border-color: #241F1C;
+    background-color: #6b6561;
 }
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .header-container, .content-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .steps-wrapper {
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .questionpanel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .questionpanel button[type="submit"] {
+        width: 100%;
+    }
+    
+    .card-grid {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .backcard {
+        width: 60px;
+        height: 96px;
+    }
+
+    .backcard .inner {
+        inset: 3px;
+    }
+
+    .backcard .tri-up {
+        left: 21px;
+        top: 36px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 12px solid #D1C7BD;
+    }
+
+    .backcard .tri-down {
+        left: 21px;
+        top: 48px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 12px solid #D1C7BD;
+    }
+}
