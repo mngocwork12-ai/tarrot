@@ -112,10 +112,103 @@
                 width: 140px;
             }
         }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background-color: #FAF7F5;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #948A80;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #241F1C;
+        }
+        .modal-title {
+            color: #481d03;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .modal-section-title {
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #948A80;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .modal-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #241F1C;
+        }
+        .card img {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #948A80;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #241F1C;
+        }
+        .typing {
+            font-style: italic;
+            color: #948A80;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-link">&larr; Ask Another Question</a>
         <h1>Your Tarot Reading</h1>
         <div class="question">Your question: <span id="userQuestion"></span></div>
         <div class="cards-section">
@@ -131,28 +224,99 @@
         </div>
     </div>
 
+    <!-- Card Dictionary Modal -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2 class="modal-title" id="modalCardName">Card Name</h2>
+            <div class="modal-section-title">Keywords</div>
+            <div class="modal-text" id="modalKeywords"></div>
+            <div class="modal-section-title">Fortune Telling</div>
+            <div class="modal-text" id="modalFortune"></div>
+            <div class="modal-section-title">Meanings (Light)</div>
+            <ul class="modal-text" id="modalMeanings" style="margin: 0; padding-left: 20px;"></ul>
+        </div>
+    </div>
+
+    <script src="AI.js"></script>
     <script>
+        // Modal Logic
+        let cardsDatabase = [];
+        fetch('/cards.json')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.cards) {
+                    cardsDatabase = data.cards;
+                }
+            })
+            .catch(err => console.error("Error fetching cards.json:", err));
+
+        const modal = document.getElementById('cardModal');
+        const closeBtn = document.getElementById('closeModal');
+        
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function showCardDictionary(cardName) {
+            const cardData = cardsDatabase.find(c => c.name === cardName);
+            if (!cardData) return;
+
+            document.getElementById('modalCardName').textContent = cardData.name;
+            
+            const keywordsEl = document.getElementById('modalKeywords');
+            keywordsEl.textContent = cardData.keywords ? cardData.keywords.join(', ') : 'N/A';
+            
+            const fortuneEl = document.getElementById('modalFortune');
+            if (cardData.fortune_telling) {
+                fortuneEl.innerHTML = cardData.fortune_telling.join('<br>');
+            } else {
+                fortuneEl.textContent = 'N/A';
+            }
+            
+            const meaningsEl = document.getElementById('modalMeanings');
+            meaningsEl.innerHTML = '';
+            if (cardData.meanings && cardData.meanings.light) {
+                cardData.meanings.light.forEach(m => {
+                    const li = document.createElement('li');
+                    li.textContent = m;
+                    meaningsEl.appendChild(li);
+                });
+            } else {
+                meaningsEl.innerHTML = '<li>N/A</li>';
+            }
+
+            modal.style.display = "block";
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const question = urlParams.get('question') || 'No question provided';
-        const responseText = urlParams.get('response') || 'No response available';
         const cardsParam = urlParams.get('cards');
 
         document.getElementById('userQuestion').textContent = question;
-        document.getElementById('aiResponse').innerHTML = responseText.replace(/\n/g, '<br>');
-
+        const aiResponseEl = document.getElementById('aiResponse');
+        
+        let cardsData = [];
         const positions = ["Past", "Present", "Future"];
 
         if (cardsParam) {
-            const cards = JSON.parse(decodeURIComponent(cardsParam));
+            cardsData = JSON.parse(decodeURIComponent(cardsParam));
             const cardsContainer = document.getElementById('selectedCards');
 
-            cards.forEach((card, i) => {
+            cardsData.forEach((card, i) => {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
 
                 const img = document.createElement('img');
                 img.src = `/cardimage/${card.img}`;
                 img.alt = card.name;
+                img.onclick = () => showCardDictionary(card.name);
+                img.title = "Click to view card meaning";
 
                 const position = document.createElement('span');
                 position.className = 'card-position';
@@ -168,6 +332,39 @@
                 cardsContainer.appendChild(cardDiv);
             });
         }
+
+        async function fetchAndTypeResponse() {
+            aiResponseEl.innerHTML = '<span class="typing">The universe is consulting the cards...</span>';
+            try {
+                if (cardsData.length === 0) {
+                    aiResponseEl.textContent = 'No cards provided.';
+                    return;
+                }
+                const response = await query(question, cardsData);
+                
+                aiResponseEl.innerHTML = '';
+                const text = response; 
+                let i = 0;
+                function typeChar() {
+                    if (i < text.length) {
+                        const char = text.charAt(i);
+                        if (char === '\n') {
+                            aiResponseEl.appendChild(document.createElement('br'));
+                        } else {
+                            aiResponseEl.appendChild(document.createTextNode(char));
+                        }
+                        i++;
+                        setTimeout(typeChar, 10);
+                    }
+                }
+                typeChar();
+
+            } catch (error) {
+                aiResponseEl.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        fetchAndTypeResponse();
     </script>
 </body>
 </html>

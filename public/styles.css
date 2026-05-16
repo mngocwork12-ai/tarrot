@@ -160,6 +160,12 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .backcard .inner {
@@ -192,8 +198,10 @@ body {
 }
 
 .card-selected {
-    border-color: #241F1C;
-    background-color: #6b6561;
+    border-color: #cfaf8e;
+    background-color: #fffefe;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 0 15px 5px rgba(230, 190, 120, 0.6) !important;
 }
 
 /* Media Queries for Mobile */

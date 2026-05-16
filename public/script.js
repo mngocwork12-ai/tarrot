@@ -100,26 +100,11 @@ questionForm.addEventListener('submit', async (e) => {
     return;
   }
 
-  try {
-    const aiResponse = await query(question, selectedCards);
-
-    const params = new URLSearchParams({
-      question: question,
-      cards: JSON.stringify(selectedCards),
-      response: aiResponse
-    });
-    window.location.href = `response.html?${params.toString()}`;
-
-  } catch (error) {
-    console.error('AI query failed:', error);
-
-    const params = new URLSearchParams({
-      question: question,
-      cards: JSON.stringify(selectedCards),
-      response: `Error: ${error.message}`
-    });
-    window.location.href = `response.html?${params.toString()}`;
-  }
+  const params = new URLSearchParams({
+    question: question,
+    cards: JSON.stringify(selectedCards)
+  });
+  window.location.href = `response.html?${params.toString()}`;
 });
 
 window.addEventListener('DOMContentLoaded', initCardGrid);
