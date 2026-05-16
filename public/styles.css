@@ -220,9 +220,15 @@ body {
         flex-direction: column;
         align-items: stretch;
     }
+
+     .questionpanel input[type="text"] {
+        height: 40px;
+        flex: none;
+    }
     
     .questionpanel button[type="submit"] {
         width: 100%;
+        height: 45px;
     }
     
     .card-grid {
@@ -254,4 +260,4 @@ body {
         border-right: 8px solid transparent;
         border-top: 12px solid #D1C7BD;
     }
-}
+}

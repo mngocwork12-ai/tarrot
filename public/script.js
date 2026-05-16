@@ -66,6 +66,16 @@ async function initCardGrid() {
 function handleCardClick(event) {
   const card = event.target.closest('.backcard');
   if (!card) return;
+
+  // If the card is not yet selected, check if we already have 3 cards selected
+  if (!card.classList.contains('card-selected')) {
+    const selectedCount = document.querySelectorAll('.backcard.card-selected').length;
+    if (selectedCount >= 3) {
+      alert('You can only select up to 3 cards.');
+      return;
+    }
+  }
+
   card.classList.toggle('card-selected');
 }
 
@@ -74,20 +84,16 @@ grid.addEventListener('click', handleCardClick);
 
 // Get reference to the question form
 const questionForm = document.querySelector('.questionpanel');
-// turn the confirm into loading 
-// turn the confirm into loading 
 const submitbutton = document.getElementById('submitbutton');
-submitbutton.addEventListener('click', function() {
-  submitbutton.style.display = 'none';
-  document.getElementById('loadingSpinner').style.display = 'block';
-});
-
 
 questionForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const input = questionForm.querySelector('input[type="text"]');
   const question = input.value.trim();
-  if (!question) return;
+  if (!question) {
+    alert('Please ask a question.');
+    return;
+  }
 
   const selectedCards = Array.from(document.querySelectorAll('.backcard.card-selected')).map(card => ({
     name: card.dataset.cardName,
@@ -95,10 +101,14 @@ questionForm.addEventListener('submit', async (e) => {
     img: card.dataset.cardImg
   }));
 
-  if (selectedCards.length === 0) {
-    alert('Please select at least one card.');
+  if (selectedCards.length !== 3) {
+    alert('Please select exactly 3 cards.');
     return;
   }
+
+  // Show loading spinner only after validation passes
+  submitbutton.style.display = 'none';
+  document.getElementById('loadingSpinner').style.display = 'block';
 
   const params = new URLSearchParams({
     question: question,
