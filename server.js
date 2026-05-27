@@ -12,13 +12,15 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowed = [
       "https://tarrot-gamma.vercel.app",
-      "https://vscode.familyfoodsmarket.com",
+      "https://odoo-test.familyfoodsmarket.com",
       "http://localhost:3000",
       "http://localhost:5500",
       "http://127.0.0.1:5500"
     ];
-    // Allow requests with no origin (e.g. Postman, curl, same-origin)
-    if (!origin || allowed.includes(origin)) return callback(null, true);
+    // Allow requests with no origin, or in the allowed list, or from any familyfoodsmarket.com subdomain
+    if (!origin || allowed.includes(origin) || origin.endsWith(".familyfoodsmarket.com")) {
+      return callback(null, true);
+    }
     return callback(new Error("Not allowed by CORS"));
   },
   methods: ["GET", "POST", "OPTIONS"],

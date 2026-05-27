@@ -1,5 +1,6 @@
 services:
   tarrot:
+    build: .
     image: tarrot:1.0.1
     container_name: tarrot
     # ports:
