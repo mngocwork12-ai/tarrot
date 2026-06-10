@@ -8,9 +8,11 @@ services:
     restart: always
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - ./data:/app/data
     networks:
       - odoo
 
 networks:
   odoo:
-   external: true
+    external: true

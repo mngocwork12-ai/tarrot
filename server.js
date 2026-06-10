@@ -2,12 +2,35 @@ import Anthropic from "@anthropic-ai/sdk";
 import express from "express";
 import path from "path";
 import cors from "cors";
+import sqlite3 from "sqlite3";
+import fs from "fs";
 const app = express();
 app.use(express.json());
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Ensure data dir exists
+const dataDir = path.join(__dirname, "data");
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir);
+}
+
+// Initialize SQLite DB
+const db = new sqlite3.Database(path.join(dataDir, "history.db"), (err) => {
+  if (err) {
+    console.error("Error opening database", err.message);
+  } else {
+    db.run(`CREATE TABLE IF NOT EXISTS qa_history (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      question TEXT,
+      cards TEXT,
+      answer TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+  }
+});
 app.use(cors({
   origin: function (origin, callback) {
     const allowed = [
@@ -62,8 +85,18 @@ Give an insightful tarot reading with no flattery and use easy language, have a 
       ]
     });
 
+    const answer = message.content[0].text;
+
+    // Save to DB and clean up older than 30 days
+    db.serialize(() => {
+      db.run(`DELETE FROM qa_history WHERE created_at < datetime('now', '-30 days')`);
+      const stmt = db.prepare(`INSERT INTO qa_history (question, cards, answer) VALUES (?, ?, ?)`);
+      stmt.run(question, cardList, answer);
+      stmt.finalize();
+    });
+
     // Send the text back to your browser
-    res.json({ response: message.content[0].text });
+    res.json({ response: answer });
 
   } catch (error) {
     console.error("Anthropic error:", error);
